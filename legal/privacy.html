@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Privacy Policy | Legal — Stux.Group</title>
+    <meta name="description" content="Privacy policy for this Stux.Group placeholder page: what it does and doesn't collect.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://global.media.stux.group/icon.png">
+    <link rel="stylesheet" href="../assets/fonts/fonts.css">
+    <style>
+        :root {
+            --red:      #D11010;
+            --red-mid:  #d95656;
+            --red-soft: #bf3a3a;
+        }
+
+        [data-theme="dark"] {
+            --bg:       #1e0303;
+            --bg-alt:   #2a0808;
+            --text:     #ffffff;
+            --text-soft:#e7c9c9;
+            --border:   rgba(255, 255, 255, 0.12);
+        }
+
+        [data-theme="light"] {
+            --red-mid:  #a01818;
+            --red-soft: #7a0f0f;
+            --bg:       #ffe8e6;
+            --bg-alt:   #ffd9d6;
+            --text:     #111111;
+            --text-soft:#4a2f2f;
+            --border:   rgba(0, 0, 0, 0.12);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Barlow', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a { color: var(--red); text-decoration: none; font-weight: 700; }
+        a:hover { text-decoration: underline; }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 6%;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+        .brand img { height: 32px; width: auto; }
+
+        #theme-toggle {
+            background: rgba(209, 16, 16, 0.12);
+            border: 1px solid rgba(209, 16, 16, 0.35);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 17px;
+            line-height: 38px;
+            text-align: center;
+            cursor: pointer;
+            padding: 0;
+            color: var(--text);
+            transition: background 0.2s;
+        }
+        #theme-toggle:hover { background: rgba(209, 16, 16, 0.22); }
+
+        main { max-width: 760px; margin: 0 auto; padding: 10px 6% 60px; }
+
+        .back-link { display: inline-block; margin-bottom: 24px; font-size: 0.9rem; }
+
+        h1 {
+            font-weight: 700;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin: 10px 0 6px;
+        }
+        .subtitle {
+            color: var(--text-soft);
+            font-size: 1.02rem;
+            margin: 0 0 18px;
+            line-height: 1.6;
+        }
+        .meta { font-size: 0.82rem; color: var(--text-soft); margin-bottom: 28px; }
+
+        h2 { font-size: 1.2rem; margin: 30px 0 8px; color: var(--red); }
+        p, li { line-height: 1.7; font-size: 0.98rem; }
+        ul { padding-left: 22px; }
+        code {
+            background: var(--bg-alt);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 6% 40px;
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+        footer a { color: var(--text-soft); font-weight: 400; opacity: 0.8; }
+        footer a:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="brand" href="../"><img src="https://global.media.stux.group/icon.png" alt="Stux.Group">
+        <span>Stux.Group</span></a>
+    <button type="button" id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9728;</button>
+</header>
+
+<main>
+    <a class="back-link" href="../legal">&larr; Boring Legal Stuff</a>
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">Short version: this page collects nothing. Here's the long version anyway.</p>
+    <p class="meta">Effective: September 2026</p>
+
+    <h2>The short version</h2>
+    <p>This is a plain static HTML placeholder page shown when a Stux.Group service hasn't been set up yet, hosted on GitHub Pages. There's no server-side code, no database, no account system, and no forms of any kind &mdash; so there's nothing for us to collect.</p>
+
+    <h2>This website</h2>
+    <p>There is no email signup, newsletter, contact form, or any other way to submit information on this page. If that ever changes, this policy will be updated first to describe exactly what's collected and why.</p>
+    <p>The <strong>Barlow</strong> font and <strong>Font Awesome</strong> icons are served from this same domain now, not a third-party CDN. The only resource still loaded from outside this domain is:</p>
+    <ul>
+        <li>The logo and icon images, from <code>global.media.stux.group</code> &mdash; our own media host.</li>
+    </ul>
+    <p>That request goes straight from your browser to our own media host's servers &mdash; we don't see it.</p>
+
+    <h2>localStorage</h2>
+    <p>The only thing this page stores in your browser is a single value, <code>sg-theme</code>, remembering whether you last chose light or dark mode. It never leaves your device, isn't sent to any server, and can be cleared any time via your browser's site data settings.</p>
+
+    <h2>Links to other sites</h2>
+    <p>The social icons on this page link out to our Bluesky and LinkedIn profiles. Those are third-party platforms with their own privacy policies &mdash; we don't control what they collect once you click through.</p>
+
+    <h2>Children's privacy</h2>
+    <p>This page isn't directed at children, but since it collects no personal information from anyone, there's nothing specific to say beyond that.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this page grows features that collect data (an email signup, for instance), this policy will be updated first to reflect exactly what's collected and why. The date above marks the most recent revision.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy? Email <a href="mailto:legal@stux.group">legal@stux.group</a>.</p>
+</main>
+
+<footer>
+    <p>Servicepage is part of <a href="https://stux.group">Stux.Group</a>. &copy; 2026 Stux.Group. All rights reserved.</p>
+    <p><a href="../legal">Boring Legal Stuff</a></p>
+</footer>
+
+<script>
+    var btn = document.getElementById('theme-toggle');
+    var html = document.documentElement;
+    var saved = localStorage.getItem('sg-theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+    btn.textContent = saved === 'dark' ? '☀' : '☾';
+    btn.addEventListener('click', function() {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        btn.textContent = next === 'dark' ? '☀' : '☾';
+        localStorage.setItem('sg-theme', next);
+    });
+</script>
+</body>
+</html>

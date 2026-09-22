@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Legal — Stux.Group</title>
+    <meta name="description" content="Privacy, terms, cookies, imprint, disclaimer and opt-out preferences for this Stux.Group placeholder page, all in one place.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://global.media.stux.group/icon.png">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <style>
+        :root {
+            --red:      #D11010;
+            --red-mid:  #d95656;
+            --red-soft: #bf3a3a;
+        }
+
+        [data-theme="dark"] {
+            --bg:       #1e0303;
+            --bg-alt:   #2a0808;
+            --text:     #ffffff;
+            --text-soft:#e7c9c9;
+            --border:   rgba(255, 255, 255, 0.12);
+        }
+
+        [data-theme="light"] {
+            --red-mid:  #a01818;
+            --red-soft: #7a0f0f;
+            --bg:       #ffe8e6;
+            --bg-alt:   #ffd9d6;
+            --text:     #111111;
+            --text-soft:#4a2f2f;
+            --border:   rgba(0, 0, 0, 0.12);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Barlow', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a { color: var(--red); text-decoration: none; font-weight: 700; }
+        a:hover { text-decoration: underline; }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 6%;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+        .brand img { height: 32px; width: auto; }
+
+        #theme-toggle {
+            background: rgba(209, 16, 16, 0.12);
+            border: 1px solid rgba(209, 16, 16, 0.35);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 17px;
+            line-height: 38px;
+            text-align: center;
+            cursor: pointer;
+            padding: 0;
+            color: var(--text);
+            transition: background 0.2s;
+        }
+        #theme-toggle:hover { background: rgba(209, 16, 16, 0.22); }
+
+        main { max-width: 780px; margin: 0 auto; padding: 10px 6% 60px; }
+
+        h1 {
+            font-weight: 700;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin: 10px 0 6px;
+        }
+        .subtitle {
+            color: var(--text-soft);
+            font-size: 1.05rem;
+            margin: 0 0 32px;
+            line-height: 1.6;
+        }
+
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 10px 0 34px;
+        }
+        .legal-card {
+            display: block;
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-alt);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .legal-card:hover {
+            border-color: var(--red);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        .legal-card h3 { margin: 0 0 6px; color: var(--text); font-size: 1.05rem; }
+        .legal-card p { margin: 0; color: var(--text-soft); font-size: 0.88rem; font-weight: 400; }
+
+        .section-note { font-size: 0.9rem; color: var(--text-soft); line-height: 1.7; }
+
+        footer {
+            text-align: center;
+            padding: 20px 6% 40px;
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+        footer a { color: var(--text-soft); font-weight: 400; opacity: 0.8; }
+        footer a:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="brand" href="./"><img src="https://global.media.stux.group/icon.png" alt="Stux.Group">
+        <span>Stux.Group</span></a>
+    <button type="button" id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9728;</button>
+</header>
+
+<main>
+    <h1>Boring Legal Stuff</h1>
+    <p class="subtitle">
+        This is just a temporary placeholder page, so there isn't much to
+        say &mdash; but here's all of it, in one place, in plain English.
+    </p>
+
+    <div class="legal-grid">
+        <a href="legal/privacy" class="legal-card">
+            <h3>Privacy Policy</h3>
+            <p>What's collected (almost nothing) and why.</p>
+        </a>
+        <a href="legal/terms" class="legal-card">
+            <h3>Terms and Ethics</h3>
+            <p>The simple rules for using this placeholder page.</p>
+        </a>
+        <a href="legal/cookies" class="legal-card">
+            <h3>Cookies Policy</h3>
+            <p>localStorage only &mdash; no tracking cookies, ever.</p>
+        </a>
+        <a href="legal/imprint" class="legal-card">
+            <h3>Imprint</h3>
+            <p>Who runs this page, and how to reach them.</p>
+        </a>
+        <a href="legal/disclaimer" class="legal-card">
+            <h3>Disclaimer</h3>
+            <p>Copyright, accuracy, and third-party links.</p>
+        </a>
+        <a href="legal/opt-out" class="legal-card">
+            <h3>Opt-Out Preferences</h3>
+            <p>There's nothing sold, so nothing to opt out of.</p>
+        </a>
+    </div>
+
+    <p class="section-note">
+        Questions about any of this? Email
+        <a href="mailto:legal@stux.group">legal@stux.group</a>.
+    </p>
+</main>
+
+<footer>
+    <p>Servicepage is part of <a href="https://stux.group">Stux.Group</a>. &copy; 2026 Stux.Group. All rights reserved.</p>
+</footer>
+
+<script>
+    var btn = document.getElementById('theme-toggle');
+    var html = document.documentElement;
+    var saved = localStorage.getItem('sg-theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+    btn.textContent = saved === 'dark' ? '☀' : '☾';
+    btn.addEventListener('click', function() {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        btn.textContent = next === 'dark' ? '☀' : '☾';
+        localStorage.setItem('sg-theme', next);
+    });
+</script>
+</body>
+</html>

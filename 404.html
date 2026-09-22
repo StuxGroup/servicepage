@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Not Found — Stux.Group</title>
+    <meta name="description" content="Page not found — Stux.Group">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://global.media.stux.group/icon.png">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <style>
+        :root {
+            --red:      #D11010;
+            --red-mid:  #d95656;
+            --red-soft: #bf3a3a;
+        }
+        [data-theme="dark"] {
+            --bg:   #1e0303;
+            --text: #ffffff;
+            --text-soft: #e7c9c9;
+        }
+        [data-theme="light"] {
+            --red-mid:  #a01818;
+            --red-soft: #7a0f0f;
+            --bg:   #ffe8e6;
+            --text: #111111;
+            --text-soft: #4a2f2f;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            margin: 0; padding: 0; height: 100%;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Barlow', sans-serif;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a { color: var(--red); text-decoration: none; font-weight: 700; }
+        a:hover { text-decoration: underline; }
+
+        .wrapper { padding: 2rem 1.5rem; max-width: 420px; }
+        .code { font-weight: 700; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--red); margin-bottom: 0.5rem; }
+        h1 { font-weight: 700; font-size: clamp(1.3rem, 4vw, 1.7rem); margin-bottom: 0.75rem; }
+        p { color: var(--text-soft); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.75rem; }
+
+        .home-link {
+            display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px;
+            font-size: 14px; font-weight: 700; border: 1px solid rgba(209, 16, 16, 0.35);
+            background: rgba(209, 16, 16, 0.12); transition: background 0.2s, border-color 0.2s;
+        }
+        .home-link:hover { background: rgba(209, 16, 16, 0.22); text-decoration: none; }
+
+        #theme-toggle {
+            position: fixed; top: 14px; right: 14px; z-index: 100;
+            background: rgba(209, 16, 16, 0.12); border: 1px solid rgba(209, 16, 16, 0.35);
+            border-radius: 50%; width: 38px; height: 38px; font-size: 17px; line-height: 38px;
+            text-align: center; cursor: pointer; padding: 0; color: var(--text); transition: background 0.2s;
+        }
+        #theme-toggle:hover { background: rgba(209, 16, 16, 0.22); }
+    </style>
+</head>
+<body>
+    <button type="button" id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9728;</button>
+
+    <div class="wrapper">
+        <div class="code">404</div>
+        <h1>Page not found</h1>
+        <p>Whatever you were looking for isn't here &mdash; the link might be old, or the page might have moved.</p>
+        <a class="home-link" href="./">&larr; Back to Stux.Group</a>
+    </div>
+
+    <script>
+        var btn = document.getElementById('theme-toggle');
+        var html = document.documentElement;
+        var saved = localStorage.getItem('sg-theme') || 'dark';
+        html.setAttribute('data-theme', saved);
+        btn.textContent = saved === 'dark' ? '☀' : '☾';
+        btn.addEventListener('click', function() {
+            var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            btn.textContent = next === 'dark' ? '☀' : '☾';
+            localStorage.setItem('sg-theme', next);
+        });
+    </script>
+</body>
+</html>

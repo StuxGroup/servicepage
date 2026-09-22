@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <title>Stux.Group — Service Page</title>
+    <meta name="description" content="This service hasn't been set up yet.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://global.media.stux.group/icon.png">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.min.css">
+    <style>
+        :root {
+            --red:      #D11010;
+            --red-mid:  #d95656;
+            --red-soft: #bf3a3a;
+        }
+
+        [data-theme="dark"] {
+            --anim-light: #eeeeee;
+            --anim-lighter: #f1dfdf;
+            --bg:   #1e0303;
+            --text: #ffffff;
+        }
+
+        [data-theme="light"] {
+            --anim-light: #333333;
+            --anim-lighter: #666666;
+            --red-mid:  #a01818;
+            --red-soft: #7a0f0f;
+            --bg:   #ffe8e6;
+            --text: #111111;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg);
+            font-family: 'Barlow', sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        /* ── Wrapper ── */
+        .section {
+            position: relative;
+            height: 100%;
+            text-align: center;
+        }
+
+        /* ── Logo ── */
+        .logo {
+            width: 65%;
+            max-width: 620px;
+            height: auto;
+            padding-top: 6%;
+        }
+
+        /* ── Animated background text ── */
+        .bg-svg {
+            position: absolute;
+            margin: auto;
+            left: 0; right: 0; top: 0; bottom: 0;
+            padding: 10%;
+            pointer-events: none;
+        }
+
+        .anim-text {
+            fill: none;
+            font-family: 'Barlow', sans-serif;
+            font-weight: 300;
+            stroke-width: 1;
+            stroke-dasharray: 50 230;
+            stroke-dashoffset: 4;
+            animation: stroke 6s infinite linear;
+        }
+        .anim-text:nth-child(5n+1) { stroke: var(--red);      animation-delay: -2.2s; }
+        .anim-text:nth-child(5n+2) { stroke: var(--anim-light, #eeeeee);         animation-delay: -1.4s; }
+        .anim-text:nth-child(5n+3) { stroke: var(--anim-lighter, #f1dfdf);         animation-delay: -2.6s; }
+        .anim-text:nth-child(5n+4) { stroke: var(--red-mid);  animation-delay: -3.8s; }
+        .anim-text:nth-child(5n+5) { stroke: var(--red-soft); animation-delay: -5.0s; }
+
+        @keyframes stroke {
+            100% { stroke-dashoffset: -300; }
+        }
+
+        /* ── Global links ── */
+        a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* ── Message (pinned to bottom) ── */
+        .message {
+            position: absolute;
+            left: 0; right: 0;
+            bottom: 70px;
+            margin: 0 auto;
+            padding: 0 5%;
+            color: var(--text);
+            font-size: clamp(14px, 2.2vw, 22px);
+            font-weight: 700;
+            line-height: 1.7;
+            letter-spacing: 0.03em;
+            transition: color 0.3s;
+        }
+
+        .message a {
+            color: var(--red);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .message a:hover { border-bottom-color: var(--red); }
+
+        /* ── Theme toggle ── */
+        #theme-toggle {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            z-index: 100;
+            background: rgba(209, 16, 16, 0.12);
+            border: 1px solid rgba(209, 16, 16, 0.35);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 17px;
+            line-height: 38px;
+            text-align: center;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s;
+            color: var(--text);
+        }
+        #theme-toggle:hover { background: rgba(209, 16, 16, 0.22); }
+
+        /* ── Social links ── */
+        .bluesky-link {
+            position: fixed;
+            bottom: 0; left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background-color: #0f73ff;
+            border: 0.15em solid #0f73ff;
+            border-left: none;
+            border-bottom: none;
+            border-radius: 0% 100% 0% 0% / 0% 100% 0% 93%;
+            color: #fff;
+            font-size: 1.4em;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            z-index: 10;
+            padding-right: 6px;
+            padding-top: 6px;
+        }
+        .bluesky-link:hover { background-color: #0a55c4; }
+
+        .linkedin-link {
+            position: fixed;
+            bottom: 0; right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background-color: #0072b1;
+            border: 0.15em solid #0072b1;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 100% 0% 0% 0% / 100% 0% 0% 0%;
+            color: #fff;
+            font-size: 1.4em;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            z-index: 10;
+            padding-left: 6px;
+            padding-top: 6px;
+        }
+        .linkedin-link:hover { background-color: #005580; }
+
+        /* ── Legal link ── */
+        .legal-link {
+            position: fixed;
+            left: 0; right: 0;
+            bottom: 10px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            z-index: 10;
+        }
+        .legal-link a {
+            color: var(--text);
+            opacity: 0.55;
+            font-weight: 400;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .legal-link a:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+
+        <!-- Logo -->
+        <a href="https://stux.group"><img class="logo" src="https://global.media.stux.group/logo.png" alt="Stux.Group Logo" title="Stux.Group Logo"></a>
+
+        <!-- Animated background -->
+        <svg class="bg-svg" viewBox="0 0 105 50">
+            <symbol id="page-text">
+                <text text-anchor="middle" x="50%" y="50%" dy=".4em">{No Service Here}</text>
+            </symbol>
+            <use class="anim-text" href="#page-text"></use>
+            <use class="anim-text" href="#page-text"></use>
+            <use class="anim-text" href="#page-text"></use>
+            <use class="anim-text" href="#page-text"></use>
+            <use class="anim-text" href="#page-text"></use>
+        </svg>
+
+        <!-- Message -->
+        <p class="message">
+            This service hasn't been set up yet.<br>
+            If you're looking for us, check our <a href="https://bsky.app/profile/stux.group">Bluesky</a> for updates
+        </p>
+
+    </div>
+
+    <!-- Theme toggle -->
+    <button type="button" id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9728;</button>
+
+    <!-- Social links -->
+    <a class="bluesky-link" href="https://bsky.app/profile/stux.group" aria-label="Bluesky">
+        <i class="fab fa-bluesky"></i>
+    </a>
+    <a class="linkedin-link" href="https://www.linkedin.com/company/stuxgroup" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <!-- Legal -->
+    <p class="legal-link"><a href="changelog" id="version-link">Changelog</a> &middot; <a href="legal">Boring Legal Stuff</a></p>
+
+    <script>
+        var btn = document.getElementById('theme-toggle');
+        var html = document.documentElement;
+        var saved = localStorage.getItem('sg-theme') || 'dark';
+        html.setAttribute('data-theme', saved);
+        btn.textContent = saved === 'dark' ? '\u2600' : '\u263E';
+        btn.addEventListener('click', function() {
+            var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            btn.textContent = next === 'dark' ? '\u2600' : '\u263E';
+            localStorage.setItem('sg-theme', next);
+        });
+    </script>
+    <script>
+        if (window.parent !== window) {
+            var parentOrigin = document.referrer ? new URL(document.referrer).origin : "*";
+            window.parent.postMessage(
+                { type: "page-title", title: document.title },
+                parentOrigin
+            );
+        }
+    </script>
+    <script>
+        fetch('VERSION.md')
+            .then(function (r) { return r.text(); })
+            .then(function (v) {
+                document.getElementById('version-link').textContent = 'v' + v.trim();
+            })
+            .catch(function () {});
+    </script>
+</body>
+</html>

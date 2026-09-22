@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Changelog — Stux.Group</title>
+    <meta name="description" content="Everything that's changed on this Stux.Group placeholder page, release by release.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://global.media.stux.group/icon.png">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <style>
+        :root {
+            --red:      #D11010;
+            --red-mid:  #d95656;
+            --red-soft: #bf3a3a;
+        }
+
+        [data-theme="dark"] {
+            --bg:       #1e0303;
+            --bg-alt:   #2a0808;
+            --text:     #ffffff;
+            --text-soft:#e7c9c9;
+            --border:   rgba(255, 255, 255, 0.12);
+        }
+
+        [data-theme="light"] {
+            --red-mid:  #a01818;
+            --red-soft: #7a0f0f;
+            --bg:       #ffe8e6;
+            --bg-alt:   #ffd9d6;
+            --text:     #111111;
+            --text-soft:#4a2f2f;
+            --border:   rgba(0, 0, 0, 0.12);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Barlow', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a { color: var(--red); text-decoration: none; font-weight: 700; }
+        a:hover { text-decoration: underline; }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 6%;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+        .brand img { height: 32px; width: auto; }
+
+        #theme-toggle {
+            background: rgba(209, 16, 16, 0.12);
+            border: 1px solid rgba(209, 16, 16, 0.35);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 17px;
+            line-height: 38px;
+            text-align: center;
+            cursor: pointer;
+            padding: 0;
+            color: var(--text);
+            transition: background 0.2s;
+        }
+        #theme-toggle:hover { background: rgba(209, 16, 16, 0.22); }
+
+        main { max-width: 780px; margin: 0 auto; padding: 10px 6% 60px; }
+
+        h1 {
+            font-weight: 700;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin: 10px 0 6px;
+        }
+        .subtitle {
+            color: var(--text-soft);
+            font-size: 1.05rem;
+            margin: 0 0 32px;
+            line-height: 1.6;
+        }
+
+        .changelog-entry {
+            padding: 20px 22px;
+            margin: 0 0 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-alt);
+        }
+        .changelog-entry-head {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 0 0 10px;
+        }
+        .changelog-version { margin: 0; font-size: 1.15rem; color: var(--text); }
+        .changelog-desc { font-size: 0.88rem; color: var(--text-soft); font-weight: 400; }
+
+        .changelog-label-row { margin: 14px 0 8px; }
+        .changelog-label-row:first-of-type { margin-top: 0; }
+        .changelog-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .changelog-label-added      { background: #2f8f4e; }
+        .changelog-label-changed    { background: #b8860b; }
+        .changelog-label-fixed      { background: var(--red); }
+        .changelog-label-removed    { background: #6b6b6b; }
+        .changelog-label-deprecated { background: #a0522d; }
+        .changelog-label-security   { background: #6a1fb0; }
+
+        .changelog-list {
+            margin: 0 0 4px;
+            padding-left: 20px;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+        .changelog-list li { margin: 0 0 4px; }
+        .changelog-list code {
+            background: rgba(209, 16, 16, 0.12);
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 0.88em;
+        }
+
+        .changelog-p { color: var(--text-soft); font-size: 0.92rem; }
+
+        footer {
+            text-align: center;
+            padding: 20px 6% 40px;
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+        footer a { color: var(--text-soft); font-weight: 400; opacity: 0.8; }
+        footer a:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="brand" href="./"><img src="https://global.media.stux.group/icon.png" alt="Stux.Group">
+        <span>Stux.Group</span></a>
+    <button type="button" id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9728;</button>
+</header>
+
+<main>
+    <h1>Changelog</h1>
+    <p class="subtitle">
+        Everything that's changed on this service placeholder page, release by release.
+    </p>
+
+    <div id="changelog-body">
+        <p class="changelog-p">Loading changelog&hellip;</p>
+    </div>
+</main>
+
+<footer>
+    <p>Servicepage is part of <a href="https://stux.group">Stux.Group</a>. &copy; 2026 Stux.Group. All rights reserved.</p>
+</footer>
+
+<script>
+    var btn = document.getElementById('theme-toggle');
+    var html = document.documentElement;
+    var saved = localStorage.getItem('sg-theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+    btn.textContent = saved === 'dark' ? '☀' : '☾';
+    btn.addEventListener('click', function() {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        btn.textContent = next === 'dark' ? '☀' : '☾';
+        localStorage.setItem('sg-theme', next);
+    });
+</script>
+<script>
+    (function () {
+        var target = document.getElementById('changelog-body');
+        var CATEGORIES = ['Added', 'Changed', 'Fixed', 'Removed', 'Deprecated', 'Security'];
+
+        function esc(s) {
+            return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+        function inline(s) {
+            s = esc(s);
+            s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+            s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            return s;
+        }
+        function renderChangelog(md) {
+            var lines = md.replace(/\r\n/g, '\n').trim().split('\n');
+            var html = '';
+            var inEntry = false;
+            var inList = false;
+            var itemBuf = null;
+            var catPattern = new RegExp('^(' + CATEGORIES.join('|') + ')\\b\\s*(.*)$');
+
+            function flushItem() { if (itemBuf !== null) { html += '<li>' + inline(itemBuf) + '</li>\n'; itemBuf = null; } }
+            function flushList() { flushItem(); if (inList) { html += '</ul>\n'; inList = false; } }
+            function flushEntry() { flushList(); if (inEntry) { html += '</div>\n'; inEntry = false; } }
+
+            lines.forEach(function (raw) {
+                var line = raw.replace(/\s+$/, '');
+                if (line.trim() === '') { flushItem(); return; }
+
+                var m = line.match(/^##\s+(.+)$/);
+                if (m) {
+                    flushEntry();
+                    html += '<div class="changelog-entry"><div class="changelog-entry-head"><h3 class="changelog-version">' + esc(m[1].trim()) + '</h3></div>\n';
+                    inEntry = true;
+                    return;
+                }
+
+                m = line.match(/^###\s+(.+)$/);
+                if (m) {
+                    flushList();
+                    var text = m[1].trim();
+                    var cm = text.match(catPattern);
+                    if (cm) {
+                        html += '<div class="changelog-label-row"><span class="changelog-label changelog-label-' + cm[1].toLowerCase() + '">' + cm[1] + '</span></div>\n';
+                    } else {
+                        html += '<h4 class="changelog-section">' + esc(text) + '</h4>\n';
+                    }
+                    return;
+                }
+
+                m = line.match(/^-\s+(.+)$/);
+                if (m) {
+                    flushItem();
+                    if (!inList) { html += '<ul class="changelog-list">\n'; inList = true; }
+                    itemBuf = m[1].trim();
+                    return;
+                }
+
+                if (/^#\s+/.test(line)) { flushItem(); return; }
+
+                if (inList && itemBuf !== null) {
+                    itemBuf += ' ' + line.trim();
+                }
+            });
+
+            flushEntry();
+            target.innerHTML = html || '<p class="changelog-p">No changelog entries yet.</p>';
+        }
+
+        fetch('CHANGELOG.md')
+            .then(function (r) {
+                if (!r.ok) throw new Error('fetch failed');
+                return r.text();
+            })
+            .then(renderChangelog)
+            .catch(function () {
+                target.innerHTML = '<p class="changelog-p">Couldn’t load the changelog right now &mdash; see <a href="https://github.com/StuxGroup/servicepage/blob/main/CHANGELOG.md">CHANGELOG.md</a> on GitHub instead.</p>';
+            });
+    })();
+</script>
+</body>
+</html>
