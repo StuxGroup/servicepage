@@ -2,6 +2,11 @@
 
 All notable changes to Servicepage are documented here.
 
+## v1.0.1
+
+### Fixed
+- The footer's changelog/version link (and other footer links) turned accent-purple once visited — `a:visited` carries a pseudo-class, giving it higher CSS specificity than the plain `footer a` selector meant to keep footer links muted, so it kept winning regardless of source order. Every affected footer link now also styles `footer a:visited` explicitly.
+
 ## v1.0.0
 
 ### Added
