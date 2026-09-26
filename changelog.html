@@ -120,14 +120,22 @@
             text-transform: uppercase;
             padding: 3px 9px;
             border-radius: 5px;
-            color: #fff;
+            color: var(--cl); background: color-mix(in srgb, var(--cl) 14%, transparent);
+            border: 1px solid color-mix(in srgb, var(--cl) 45%, transparent);
         }
-        .changelog-label-added      { background: #2f8f4e; }
-        .changelog-label-changed    { background: #b8860b; }
-        .changelog-label-fixed      { background: var(--red); }
-        .changelog-label-removed    { background: #6b6b6b; }
-        .changelog-label-deprecated { background: #a0522d; }
-        .changelog-label-security   { background: #6a1fb0; }
+        /* Fixed type palette & order: Added, Changed, Fixed, Removed, Security, Deprecated */
+        .changelog-label-added      { --cl: #2ecc71; }
+        .changelog-label-changed    { --cl: #3ba7ff; }
+        .changelog-label-fixed      { --cl: #ffa64d; }
+        .changelog-label-removed    { --cl: #ff4d4d; }
+        .changelog-label-security   { --cl: #b06bff; }
+        .changelog-label-deprecated { --cl: #8a8a94; }
+        [data-theme="light"] .changelog-label-added      { --cl: #1e8449; }
+        [data-theme="light"] .changelog-label-changed    { --cl: #1a6fc0; }
+        [data-theme="light"] .changelog-label-fixed      { --cl: #b8650f; }
+        [data-theme="light"] .changelog-label-removed    { --cl: #c62828; }
+        [data-theme="light"] .changelog-label-security   { --cl: #7b3fc4; }
+        [data-theme="light"] .changelog-label-deprecated { --cl: #5f5f68; }
 
         .changelog-list {
             margin: 0 0 4px;
@@ -197,7 +205,7 @@
 <script>
     (function () {
         var target = document.getElementById('changelog-body');
-        var CATEGORIES = ['Added', 'Changed', 'Fixed', 'Removed', 'Deprecated', 'Security'];
+        var CATEGORIES = ['Added', 'Changed', 'Fixed', 'Removed', 'Security', 'Deprecated'];
 
         function esc(s) {
             return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -208,8 +216,32 @@
             s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
             return s;
         }
+        // Sort ### sections within each release into CATEGORIES order (unknown types last).
+        function sectionRank(heading) {
+            var w = ((heading.match(/^###\s+([A-Za-z]+)/) || [])[1] || '').toLowerCase();
+            for (var i = 0; i < CATEGORIES.length; i++) {
+                if (CATEGORIES[i].toLowerCase() === w) return i;
+            }
+            return CATEGORIES.length;
+        }
+        function sortSections(md) {
+            var out = [], pre = [], secs = [];
+            function flush() {
+                secs.sort(function (a, b) { return (a.rank - b.rank) || (a.idx - b.idx); });
+                out = out.concat(pre);
+                secs.forEach(function (s) { out = out.concat(s.lines); });
+                pre = []; secs = [];
+            }
+            md.split('\n').forEach(function (line) {
+                if (/^#{1,2}\s/.test(line)) { flush(); pre.push(line); return; }
+                if (/^###\s/.test(line)) { secs.push({ rank: sectionRank(line), idx: secs.length, lines: [line] }); return; }
+                if (secs.length) secs[secs.length - 1].lines.push(line); else pre.push(line);
+            });
+            flush();
+            return out.join('\n');
+        }
         function renderChangelog(md) {
-            var lines = md.replace(/\r\n/g, '\n').trim().split('\n');
+            var lines = sortSections(md.replace(/\r\n/g, '\n').trim()).split('\n');
             var html = '';
             var inEntry = false;
             var inList = false;
