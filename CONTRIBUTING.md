@@ -25,6 +25,7 @@ a static site with no build step. Then open `http://127.0.0.1:8000`.
 - This is a single page, not a soonpage/maintenancepage pair — a service
   either has been set up or it hasn't; there's no separate "under
   maintenance" state to design for.
+- The sitemap (`sitemap.xml`, `sitemap/index.html`, `robots.txt`) is generated: after adding or removing a page, edit the `PAGES` list in `scripts/build-sitemap.py` and run `python scripts/build-sitemap.py`, then commit the result
 
 ## Versioning and changelog
 

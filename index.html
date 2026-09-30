@@ -205,6 +205,8 @@
         }
         .legal-link a:hover { opacity: 0.9; }
     </style>
+    <link rel="stylesheet" href="/assets/site-banner.css">
+    <link rel="stylesheet" href="/assets/site-brand.css">
 </head>
 <body>
 
@@ -244,8 +246,12 @@
         <i class="fab fa-linkedin-in"></i>
     </a>
 
+    <div class="brand-footer">
+        <div class="brand-strip"><a href="https://stux.group" target="_blank" rel="noopener" aria-label="Stux.Group"><img class="brand-strip-mark" src="https://global.media.stux.group/icon.png" alt="Stux.Group" title="Stux.Group" height="28"></a><span class="brand-strip-sep" aria-hidden="true">|</span><a class="brand-strip-text" href="https://services.stux.group" target="_blank" rel="noopener">A Stux.Group Service</a></div>
+        <p class="created-with">Created with <svg class="cw-love" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><title>Love</title><path d="M8 14.3S1.4 10.2 1.4 5.7A3.4 3.4 0 0 1 8 4a3.4 3.4 0 0 1 6.6 1.7c0 4.5-6.6 8.6-6.6 8.6z"/></svg> / <svg class="cw-code" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><title>Code</title><path d="M5 3.7 6.2 4.9 3.1 8l3.1 3.1L5 12.3.7 8zM11 3.7 15.3 8 11 12.3l-1.2-1.2L12.9 8 9.8 4.9zM9.2 2.2l1.2.4-3.6 11.2-1.2-.4z"/></svg> / <svg class="cw-coffee" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><title>Coffee</title><path d="M1.5 5.5h9.5v4a3.5 3.5 0 0 1-3.5 3.5h-2.5A3.5 3.5 0 0 1 1.5 9.5zM12 6.3h.7a2.4 2.4 0 0 1 0 4.8h-1.3c.3-.4.5-.9.6-1.4h.7a1 1 0 0 0 0-2H12zM3.8 1.4H5v2.8H3.8zM6.6 1.4h1.2v2.8H6.6z"/></svg><span class="cw-sr"> love, code and coffee</span> by <a href="https://stux.group" target="_blank" rel="noopener">Stux.Group</a></p>
+    </div>
     <!-- Legal -->
-    <p class="legal-link"><a href="changelog" id="version-link">Changelog</a> &middot; <a href="legal">Boring Legal Stuff</a></p>
+    <p class="legal-link"><a href="changelog" id="version-link">Changelog</a> &middot; <a href="legal">Boring Legal Stuff</a> &middot; <a href="sitemap/">Sitemap</a></p>
 
     <script>
         var btn = document.getElementById('theme-toggle');
@@ -277,5 +283,8 @@
             })
             .catch(function () {});
     </script>
+    <script src="/assets/dev-mode.js"></script>
+    <script src="/assets/site-banners.js"></script>
+    <script src="/assets/site-banner.js"></script>
 </body>
 </html>

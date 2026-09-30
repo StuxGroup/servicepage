@@ -1,0 +1,177 @@
+/*
+ * Stux.Group Servicepage: maps assets/site-banner.css onto this site's colours, and styles the footer's
+ * brand line ("logo | service") and "Created with love / code / coffee" line. The logos,
+ * badges and service text stay muted until hovered or focused.
+ */
+.site-banners {
+    --banner-page-bg: var(--bg);
+    --banner-text: var(--text);
+    --banner-site: #ff6b6b;
+    --banner-site-light: #a01818;
+}
+
+/* Fixed mode pads <body> by the banner's height; keep that inside full-height layouts. */
+:root.has-site-banner.site-banner-fixed body {
+    box-sizing: border-box;
+}
+
+:root.has-site-banner #theme-toggle {
+    top: calc(14px + var(--banner-h, 0px));
+}
+
+/* Home page: the brand line sits just above the fixed "Changelog · Boring Legal Stuff" line. */
+.brand-footer {
+    position: fixed;
+    left: 50%;
+    bottom: 34px;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: max-content;
+    max-width: calc(100% - 132px);
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--text);
+}
+
+.brand-footer .brand-strip-text,
+.brand-footer .created-with {
+    opacity: 0.8;
+}
+
+.brand-footer .brand-strip-text:hover,
+.brand-footer .brand-strip-text:focus-visible {
+    opacity: 1;
+}
+
+.brand-footer .created-with {
+    margin: 0;
+}
+
+.brand-footer .brand-strip {
+    margin: 0 0 2px;
+}
+
+/* The home page's message sits just above the footer lines; lift it clear of the brand line. */
+body:has(.brand-footer) .message {
+    bottom: 112px;
+}
+
+@media (max-width: 480px) {
+    body:has(.brand-footer) .message {
+        bottom: 118px;
+    }
+}
+
+.brand-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 10px;
+    margin: 0 0 6px;
+}
+
+.brand-strip a {
+    text-decoration: none;
+}
+
+.brand-strip-mark {
+    display: block;
+    height: 28px;
+    width: auto;
+}
+
+/* Logos and badges: grey and dimmed until their link is hovered or focused. Every state uses the
+   same filter functions so the change animates smoothly; going to `filter: none` makes the browser
+   drop the image's layer at the end of the transition, which shows as a glitchy snap. */
+.brand-strip-mark,
+.brand-muted-mark {
+    filter: grayscale(1) brightness(1);
+    opacity: 0.7;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+    will-change: filter, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.brand-muted-mark.poweredby-badge,
+img.brand-muted-mark {
+    height: 28px;
+    width: auto;
+}
+
+:root.theme-light .brand-strip-mark,
+:root.theme-light .brand-muted-mark,
+:root[data-theme="light"] .brand-strip-mark,
+:root[data-theme="light"] .brand-muted-mark {
+    filter: grayscale(1) brightness(0.6);
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not(.theme-dark):not([data-theme="dark"]) .brand-strip-mark,
+    :root:not(.theme-dark):not([data-theme="dark"]) .brand-muted-mark {
+        filter: grayscale(1) brightness(0.6);
+    }
+}
+
+:root a:hover > .brand-strip-mark,
+:root a:focus-visible > .brand-strip-mark,
+:root a:hover > .brand-muted-mark,
+:root a:focus-visible > .brand-muted-mark {
+    filter: grayscale(0) brightness(1);
+    opacity: 1;
+}
+
+.brand-strip-text {
+    color: inherit;
+    transition: color 0.2s;
+}
+
+.brand-strip-text:hover,
+.brand-strip-text:focus-visible {
+    color: var(--text);
+}
+
+.brand-strip-sep {
+    opacity: 0.5;
+}
+
+.created-with {
+    margin: 0 0 6px;
+}
+
+.created-with svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    fill: currentColor;
+}
+
+svg.cw-copy {
+    width: 0.95em;
+    height: 0.95em;
+    vertical-align: -0.12em;
+    fill: currentColor;
+}
+
+.created-with .cw-love { color: #e5484d; }
+.created-with .cw-code { color: #2f9e44; }
+.created-with .cw-coffee { color: #a0703f; }
+
+.cw-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brand-strip-mark,
+    .brand-muted-mark,
+    .brand-strip-text {
+        transition: none;
+    }
+}
