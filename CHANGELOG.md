@@ -2,6 +2,12 @@
 
 All notable changes to Servicepage are documented here.
 
+## v1.1.2
+
+### Changed
+
+- The footer's copyright year is worked out automatically: the start year alone in the first year, then START–CURRENT
+
 ## v1.1.1
 
 ### Fixed
