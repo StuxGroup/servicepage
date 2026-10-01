@@ -158,6 +158,10 @@ svg.cw-copy {
 .created-with .cw-love { color: #e5484d; }
 .created-with .cw-code { color: #2f9e44; }
 .created-with .cw-coffee { color: #a0703f; }
+/* Optical sizing: the solid heart fills its box, so it is scaled down to match the thin code strokes and the mug */
+.created-with .cw-love { font-size: 0.85em; }
+.created-with .cw-code { font-size: 1em; }
+.created-with .cw-coffee { font-size: 0.95em; }
 
 .cw-sr {
     position: absolute;

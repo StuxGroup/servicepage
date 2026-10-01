@@ -2,6 +2,12 @@
 
 All notable changes to Servicepage are documented here.
 
+## v1.1.1
+
+### Fixed
+
+- The footer's Created-with icons are optically sized, so the heart no longer looks bigger than the code and coffee icons
+
 ## v1.1.0
 
 ### Added
