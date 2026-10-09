@@ -2,6 +2,12 @@
 
 All notable changes to Servicepage are documented here.
 
+## v1.1.3
+
+### Fixed
+
+- The animated "{No Service Here}" heading is no longer cut off at the sides: it's wider than the other pages' headings, so its drawing area is now wide enough to fit it, braces included, at every screen size
+
 ## v1.1.2
 
 ### Changed
