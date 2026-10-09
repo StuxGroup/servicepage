@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://global.media.stux.group/logo.png" height="100" alt="Stux.Group Logo">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.group/logo-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.group/logo-dark.png"><img src="https://global.media.stux.group/logo-dark.png" height="100" alt="Stux.Group Logo"></picture>
 </p>
 
 # Servicepage
@@ -49,7 +49,7 @@ This project is open source and available for use and modification.
 
 Made by [Stux.Group](https://github.com/StuxGroup)
 
-*Stux.Group is the parent of the <img src="https://global.media.stux.group/icon.png" height="14" alt="Stux.Group" valign="middle"> Stux.Group Brand of Companies.*
+*Stux.Group is the parent of the <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.group/icon-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.group/icon-dark.png"><img src="https://global.media.stux.group/icon-dark.png" height="14" alt="Stux.Group" valign="middle"></picture> Stux.Group Brand of Companies.*
 
 ## Local preview
 

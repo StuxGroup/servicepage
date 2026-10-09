@@ -2,6 +2,13 @@
 
 All notable changes to Servicepage are documented here.
 
+## v1.1.5
+
+### Changed
+
+- The favicon follows the browser's light or dark theme: the deep icon (`icon-dark.png`) on light and the bright one (`icon-light.png`) on dark, straight from the brand's media host, so a brand colour change is just a new file there
+- The logos and icons in the Markdown docs (README and the like) follow GitHub's light or dark theme, using each brand's `logo-light`/`logo-dark` and `icon-light`/`icon-dark` files
+
 ## v1.1.4
 
 ### Fixed
