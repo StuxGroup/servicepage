@@ -2,6 +2,7 @@
 """Regenerate sitemap.xml and sitemap/index.html for this static site.
 
 Run from anywhere: python scripts/build-sitemap.py
+It then runs build-discord-embeds.py, so the regenerated sitemap page gets its own Discord preview.
 The page list is PAGES below; each page's <lastmod> is the date of the last git commit that
 touched its source file (left out if the file has no history yet). URLs always use BASE_URL,
 the site's production address.
@@ -11,6 +12,7 @@ Copyright (c) Stux.Group. All Rights Reserved.
 import html
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -116,6 +118,8 @@ def main() -> None:
         text = text.rstrip("\n") + "\n\n" + line + "\n"
     robots.write_text(text, encoding="utf-8", newline="\n")
     print(f"Wrote sitemap.xml, sitemap/index.html and robots.txt for {BASE_URL} ({len(PAGES)} pages)")
+    # The sitemap page is copied from legal.html's shell, Discord preview included: rebuild it for this page.
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "build-discord-embeds.py")], check=True)
 
 
 if __name__ == "__main__":

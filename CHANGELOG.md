@@ -2,6 +2,21 @@
 
 All notable changes to Servicepage are documented here.
 
+This project uses [Date Versioning](https://datevers.ing): each version is the UTC date it was released, as `YY.MM.DD`, with `-1`, `-2` and so on for later releases the same day. Versions up to v1.1.5 used Semantic Versioning.
+
+## v26.10.23
+
+### Added
+
+- Discord link previews: every page except the 404 page carries a `discord:component-embed` block in its `<head>`, in the Stux.Group red with the Stux.Group icon. The home page shows what this placeholder is with links to Stux.Group, all services and Bluesky; the changelog, the legal hub and the other pages get their own preview. The blocks are pre-built and committed by `python scripts/build-discord-embeds.py` (which `build-sitemap.py` now runs too), page text is escaped so it shows as plain text, a preview over Discord's 3,000-byte limit is left out, and the page title and description stay as the fallback
+- A full favicon set: `favicon.ico` (16, 32 and 48px), `apple-touch-icon.png` (on a white background, so iOS doesn't fill it with black) and `site.webmanifest` with 192px, 512px and maskable 512px icons, linked from every page, the 404 page included; the dev server serves the manifest as `application/manifest+json` like GitHub Pages does
+- A test suite, `tests/run.sh`, run by CI: the version and changelog, the Discord previews, the favicon set, the changelog page's parser and, when PHP is installed, a smoke test of every page through the dev server
+
+### Changed
+
+- Switched from Semantic Versioning (last version v1.1.5) to [Date Versioning](https://datevers.ing): versions are now the UTC release date as `YY.MM.DD`, plus `-1`, `-2`... for later releases the same day
+- `commit.sh` and `commit.bat` refuse a `VERSION.md` that isn't a real Date Version or is dated in the future (UTC), and warn when it's dated before today; they also name the project as Servicepage rather than Soonpage in tag messages
+
 ## v1.1.5
 
 ### Changed

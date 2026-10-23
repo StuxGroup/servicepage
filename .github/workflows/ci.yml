@@ -20,3 +20,6 @@ jobs:
 
       - name: Lint Markdown
         run: npx --yes markdownlint-cli@0.41 "**/*.md" --ignore node_modules
+
+      - name: Tests (version, favicons, Discord previews, changelog page, smoke tests)
+        run: bash tests/run.sh

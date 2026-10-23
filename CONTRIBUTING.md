@@ -29,6 +29,7 @@ a static site with no build step. Then open `http://127.0.0.1:8000`.
 
 ## Versioning and changelog
 
-- The version lives in `VERSION.md` (a bare version string) — bump it on every release
+- Servicepage uses [Date Versioning](https://datevers.ing) (since v26.10.23; semver before that): the version is the UTC date of the release as `YY.MM.DD` (e.g. `26.10.23`), and a second release on the same UTC day is `26.10.23-1`, then `-2` and so on. Never a future date, and a released version is never reused
+- The version lives in `VERSION.md` (the bare version, no `v`) — set it on every release. The `v` only appears in git tags, changelog headings and footers
 - Every release gets a `CHANGELOG.md` entry using `### Added` / `### Changed` / `### Fixed` subsections — never a bare bullet list directly under a version heading
-- `commit.sh` (bash) and `commit.bat` (Windows) read `VERSION.md` and handle the commit + `git tag` for a release — no need to edit them per release
+- `commit.sh` (bash) and `commit.bat` (Windows) read `VERSION.md`, refuse anything that isn't a valid Date Version, and handle the commit + `git tag` for a release — no need to edit them per release. `bash tests/run.sh` checks the version, icons, Discord previews and pages

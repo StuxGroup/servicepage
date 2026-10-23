@@ -51,6 +51,10 @@ Made by [Stux.Group](https://github.com/StuxGroup)
 
 *Stux.Group is the parent of the <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.group/icon-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.group/icon-dark.png"><img src="https://global.media.stux.group/icon-dark.png" height="14" alt="Stux.Group" valign="middle"></picture> Stux.Group Brand of Companies.*
 
+## Versioning
+
+Servicepage uses [Date Versioning](https://datevers.ing): each release is numbered by its UTC release date as `YY.MM.DD` (e.g. `26.10.23`), with `-1`, `-2`... for further releases that day. See [CHANGELOG.md](CHANGELOG.md) for what changed in each.
+
 ## Local preview
 
 Run `./dev-server.sh` (or `dev-server.bat`, add a port as the last argument) to serve the site at `http://127.0.0.1:8000` the way GitHub Pages does, with the dev-mode banner on. Add `--no-dev-mode` to see it exactly as production does, or `?banner=soon,maintenance,site` to preview the other banner types. It uses PHP 7.4's built-in server (set `PHP_BIN` to pick another PHP).

@@ -19,6 +19,12 @@ if (strpos($path, '..') !== false) {
 }
 
 $file = $root . $path;
+if (is_file($file) && substr($path, -12) === '.webmanifest') {
+    // PHP's built-in server doesn't know this type; GitHub Pages serves it as below.
+    header('Content-Type: application/manifest+json');
+    readfile($file);
+    return true;
+}
 if (is_file($file)) {
     return false;
 }
