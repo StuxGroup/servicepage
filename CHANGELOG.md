@@ -4,6 +4,12 @@ All notable changes to Servicepage are documented here.
 
 This project uses [Date Versioning](https://datevers.ing): each version is the UTC date it was released, as `YY.MM.DD`, with `-1`, `-2` and so on for later releases the same day. Versions up to v1.1.5 used Semantic Versioning.
 
+## v26.10.26
+
+### Security
+
+- CI runs on Node.js 24 instead of the end-of-life Node.js 20, which has no fix for the Brotli decoder vulnerability CVE-2026-111497
+
 ## v26.10.23
 
 ### Added
