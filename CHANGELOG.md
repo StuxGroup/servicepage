@@ -4,6 +4,16 @@ All notable changes to Servicepage are documented here.
 
 This project uses [Date Versioning](https://datevers.ing): each version is the UTC date it was released, as `YY.MM.DD`, with `-1`, `-2` and so on for later releases the same day. Versions up to v1.1.5 used Semantic Versioning.
 
+## v26.11.06
+
+### Added
+
+- A `test` branch: work goes there and reaches `main` only through a reviewed pull request, and merging is what deploys the site. CI now runs on `test` too
+
+### Fixed
+
+- **Short, wide windows:** the logo, the `{No Service Here}` heading, the message and the footer no longer crowd into or overlap each other in short, wide windows (around 2:1, such as 1600x800). They now stack in one column with gaps that can't collapse, the logo and heading are sized by the window's height as well as its width, and a window too short for everything scrolls instead of overlapping
+
 ## v26.10.26
 
 ### Security

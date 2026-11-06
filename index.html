@@ -42,34 +42,50 @@
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow: hidden;
             background-color: var(--bg);
             font-family: 'Barlow', sans-serif;
             transition: background-color 0.3s;
         }
 
+        /* The logo, heading, message and footer stack top to bottom in one column that fills the
+           window, so they keep their gaps at any shape of window, and the page scrolls instead of
+           overlapping when it's too short to fit them. */
+        html { height: 100%; }
+        body {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
         /* ── Wrapper ── */
         .section {
-            position: relative;
-            height: 100%;
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: clamp(12px, 3vh, 40px);
+            padding: clamp(20px, 6vh, 64px) 0 clamp(16px, 3vh, 32px);
             text-align: center;
         }
 
-        /* ── Logo ── */
+        /* ── Logo ── (sized by height too, so it shrinks in short, wide windows; 2480 / 900 is
+           the logo's aspect ratio) */
         .logo {
-            width: 65%;
-            max-width: 620px;
+            display: block;
+            width: min(65vw, 620px, calc(24vh * 2480 / 900));
             height: auto;
-            padding-top: 6%;
         }
 
-        /* ── Animated background text ── */
+        /* ── Animated heading ── (same: 130 / 22 is the viewBox's aspect ratio. The viewBox is
+           cropped to the text's height, so the heading's box is the text and nothing else) */
         .bg-svg {
-            position: absolute;
-            margin: auto;
-            left: 0; right: 0; top: 0; bottom: 0;
-            padding: 10%;
+            display: block;
+            flex: 0 0 auto;
+            width: min(90vw, 1100px, calc(20vh * 130 / 22));
+            height: auto;
+            aspect-ratio: 130 / 22;
+            overflow: visible;
             pointer-events: none;
         }
 
@@ -99,15 +115,12 @@
             font-weight: 700;
         }
 
-        /* ── Message (pinned to bottom) ── */
+        /* ── Message ── */
         .message {
-            position: absolute;
-            left: 0; right: 0;
-            bottom: 70px;
-            margin: 0 auto;
+            margin: 0;
             padding: 0 5%;
             color: var(--text);
-            font-size: clamp(14px, 2.2vw, 22px);
+            font-size: clamp(14px, min(2.2vw, 3.2vh), 22px);
             font-weight: 700;
             line-height: 1.7;
             letter-spacing: 0.03em;
@@ -192,10 +205,8 @@
 
         /* ── Legal link ── */
         .legal-link {
-            position: fixed;
-            left: 0; right: 0;
-            bottom: 10px;
-            margin: 0 auto;
+            position: relative;
+            margin: 4px auto 10px;
             text-align: center;
             font-size: 11px;
             font-weight: 400;
@@ -222,9 +233,9 @@
         <a href="https://stux.group"><img class="logo" src="https://global.media.stux.group/logo.png" alt="Stux.Group Logo" title="Stux.Group Logo"></a>
 
         <!-- Animated background -->
-        <svg class="bg-svg" viewBox="0 0 130 50">
+        <svg class="bg-svg" viewBox="0 0 130 22">
             <symbol id="page-text">
-                <text text-anchor="middle" x="50%" y="50%" dy=".4em">{No Service Here}</text>
+                <text text-anchor="middle" x="50%" y="11" dy=".4em">{No Service Here}</text>
             </symbol>
             <use class="anim-text" href="#page-text"></use>
             <use class="anim-text" href="#page-text"></use>

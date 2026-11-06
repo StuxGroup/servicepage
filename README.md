@@ -39,7 +39,7 @@ Edit the HTML files to:
 
 ## Deployment
 
-This project uses GitHub Pages and is automatically deployed to [servicepage.stux.group](https://servicepage.stux.group).
+This project uses GitHub Pages and is automatically deployed to [servicepage.stux.group](https://servicepage.stux.group) whenever a pull request from `test` is merged into `main`. Work goes onto `test` (or a feature branch off it), never straight onto `main`.
 
 ## License
 

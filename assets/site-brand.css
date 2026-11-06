@@ -19,13 +19,12 @@
     top: calc(14px + var(--banner-h, 0px));
 }
 
-/* Home page: the brand line sits just above the fixed "Changelog · Boring Legal Stuff" line. */
+/* Home page: the brand line sits just above the "Changelog · Boring Legal Stuff" line, both at the
+   end of the page's column (clear of the corner Bluesky and LinkedIn buttons). */
 .brand-footer {
-    position: fixed;
-    left: 50%;
-    bottom: 34px;
-    transform: translateX(-50%);
+    position: relative;
     z-index: 2;
+    margin: 0 auto;
     width: max-content;
     max-width: calc(100% - 132px);
     text-align: center;
@@ -50,17 +49,6 @@
 
 .brand-footer .brand-strip {
     margin: 0 0 2px;
-}
-
-/* The home page's message sits just above the footer lines; lift it clear of the brand line. */
-body:has(.brand-footer) .message {
-    bottom: 112px;
-}
-
-@media (max-width: 480px) {
-    body:has(.brand-footer) .message {
-        bottom: 118px;
-    }
 }
 
 .brand-strip {
