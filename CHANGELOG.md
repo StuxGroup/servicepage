@@ -4,6 +4,17 @@ All notable changes to Servicepage are documented here.
 
 This project uses [Date Versioning](https://datevers.ing): each version is the UTC date it was released, as `YY.MM.DD`, with `-1`, `-2` and so on for later releases the same day. Versions up to v1.1.5 used Semantic Versioning.
 
+## v26.11.06-1
+
+### Changed
+
+- `README.md` is titled with the page's full name, Stux.Group Servicepage, as on services.stux.group, and lists what
+  the page has now: the Boring Legal Stuff hub, the changelog page, the sitemap, the Discord link preview and the
+  site banners
+- `README.md`'s License section and footer come last again (the Local preview section had ended up after the
+  footer), and its licence wording is corrected to say all rights are reserved: it said the project was open source
+- The README's site links use https
+
 ## v26.11.06
 
 ### Added
