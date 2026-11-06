@@ -2,7 +2,7 @@
   <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.group/logo-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.group/logo-dark.png"><img src="https://global.media.stux.group/logo-dark.png" height="100" alt="Stux.Group Logo"></picture>
 </p>
 
-# Servicepage
+# Stux.Group Servicepage
 
 A clean and simple placeholder page for a Stux.Group service that hasn't been set up yet.
 
@@ -17,6 +17,8 @@ This repository contains a lightweight HTML page shown in place of a Stux.Group 
 - 🎨 Ready to customize
 - 📱 Responsive design
 - 🚀 Deployed at [servicepage.stux.group](https://servicepage.stux.group)
+- 📜 A **Boring Legal Stuff** hub at `/legal` with its six pages, a `/changelog` page, a sitemap and a Discord link preview
+- 🏷️ Optional site banners (dev mode, coming soon, maintenance)
 
 ## Getting Started
 
@@ -41,16 +43,6 @@ Edit the HTML files to:
 
 This project uses GitHub Pages and is automatically deployed to [servicepage.stux.group](https://servicepage.stux.group) whenever a pull request from `test` is merged into `main`. Work goes onto `test` (or a feature branch off it), never straight onto `main`.
 
-## License
-
-This project is open source and available for use and modification.
-
----
-
-Made by [Stux.Group](https://github.com/StuxGroup)
-
-*Stux.Group is the parent of the <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.group/icon-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.group/icon-dark.png"><img src="https://global.media.stux.group/icon-dark.png" height="14" alt="Stux.Group" valign="middle"></picture> Stux.Group Brand of Companies.*
-
 ## Versioning
 
 Servicepage uses [Date Versioning](https://datevers.ing): each release is numbered by its UTC release date as `YY.MM.DD` (e.g. `26.10.23`), with `-1`, `-2`... for further releases that day. See [CHANGELOG.md](CHANGELOG.md) for what changed in each.
@@ -58,3 +50,13 @@ Servicepage uses [Date Versioning](https://datevers.ing): each release is number
 ## Local preview
 
 Run `./dev-server.sh` (or `dev-server.bat`, add a port as the last argument) to serve the site at `http://127.0.0.1:8000` the way GitHub Pages does, with the dev-mode banner on. Add `--no-dev-mode` to see it exactly as production does, or `?banner=soon,maintenance,site` to preview the other banner types. It uses PHP 7.4's built-in server (set `PHP_BIN` to pick another PHP).
+
+## License
+
+Copyright © Stux.Group. All rights reserved.
+
+---
+
+Made by [Stux.Group](https://github.com/StuxGroup)
+
+*Stux.Group is the parent of the <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.group/icon-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.group/icon-dark.png"><img src="https://global.media.stux.group/icon-dark.png" height="14" alt="Stux.Group" valign="middle"></picture> Stux.Group Brand of Companies.*
