@@ -155,7 +155,8 @@ else
         check "$(fetch "$url")" "200 text/html" "GET $url"
     done
     check "$(fetch /no-such-page | cut -d' ' -f1)" "404" "GET a missing page"
-    check "$(fetch /favicon.ico)" "200 image/x-icon" "GET /favicon.ico"
+    # PHP's built-in server says image/x-icon on Windows and image/vnd.microsoft.icon on Linux (CI); both are fine.
+    check "$(fetch /favicon.ico | sed 's#image/vnd\.microsoft\.icon#image/x-icon#')" "200 image/x-icon" "GET /favicon.ico"
     check "$(fetch /apple-touch-icon.png)" "200 image/png" "GET /apple-touch-icon.png"
     check "$(fetch /site.webmanifest)" "200 application/manifest+json" "GET /site.webmanifest"
     for img in icon-192.png icon-512.png icon-maskable-512.png; do

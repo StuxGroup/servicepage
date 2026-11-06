@@ -27,6 +27,12 @@ a static site with no build step. Then open `http://127.0.0.1:8000`.
   maintenance" state to design for.
 - The sitemap (`sitemap.xml`, `sitemap/index.html`, `robots.txt`) is generated: after adding or removing a page, edit the `PAGES` list in `scripts/build-sitemap.py` and run `python scripts/build-sitemap.py`, then commit the result
 
+## Branches
+
+- Work on `test`, or on a feature branch off it. Never push to `main`
+- Changes reach `main` only through a pull request from `test` into `main`, which needs CI to pass and is reviewed and merged by Leo
+- Merging into `main` deploys the site to GitHub Pages; release commits and tags are made on `test` (`git push origin test --tags`) and go live when the pull request is merged
+
 ## Versioning and changelog
 
 - Servicepage uses [Date Versioning](https://datevers.ing) (since v26.10.23; semver before that): the version is the UTC date of the release as `YY.MM.DD` (e.g. `26.10.23`), and a second release on the same UTC day is `26.10.23-1`, then `-2` and so on. Never a future date, and a released version is never reused
