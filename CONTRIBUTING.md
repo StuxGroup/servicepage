@@ -10,9 +10,10 @@ access to the repo who wants to work on it consistently.
 
 ## Local setup
 
-Just clone the repo and run `./dev-server.sh [port]` (or `dev-server.bat [port]`
+Just clone the repo and run `./dev-server.sh [port] [--lan]` (or `dev-server.bat [port] [--lan]`
 on Windows) — starts PHP's built-in server pointed at the directory, since it's
-a static site with no build step. Then open `http://127.0.0.1:8000`.
+a static site with no build step. Then open `http://127.0.0.1:8000`. `--lan` also serves it
+to devices on your local network and prints the addresses to open.
 
 ## Project conventions
 

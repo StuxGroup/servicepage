@@ -1,9 +1,11 @@
 @echo off
 setlocal
 REM Stux.Group Servicepage - Local dev server (Windows)
-REM Usage: dev-server.bat [port] [--no-dev-mode]
+REM Usage: dev-server.bat [port] [--no-dev-mode] [--lan]
 REM   port            default: 8000
 REM   --no-dev-mode   render exactly as production does (no dev banner)
+REM   --lan           listen on all interfaces so phones/tablets on your network can
+REM                   connect (prints the addresses to open); default is 127.0.0.1 only
 REM
 REM Static site, nothing to build: this serves the folder the way GitHub Pages does through
 REM .github\dev-router.php. DEV_MODE is on by default, which makes the router answer
@@ -13,12 +15,18 @@ REM %PHP_BIN% if set, else %LOCALAPPDATA%\Programs\PHP\7.4, else php74 on PATH, 
 
 set "DIR=%~dp0"
 set "PORT=8000"
+set "HOST=127.0.0.1"
 set "DEV_MODE=1"
 
 :args
 if "%~1"=="" goto run
 if /I "%~1"=="--no-dev-mode" (
     set "DEV_MODE=0"
+    shift
+    goto args
+)
+if /I "%~1"=="--lan" (
+    set "HOST=0.0.0.0"
     shift
     goto args
 )
@@ -40,4 +48,11 @@ if "%DEV_MODE%"=="1" (
     echo DEV_MODE off - rendering exactly as production does.
 )
 echo Stux.Group Servicepage running at http://127.0.0.1:%PORT% ^(PHP %PHPVER%^)
-"%PHP%" -S 127.0.0.1:%PORT% -t "%DIR%." "%DIR%.github\dev-router.php"
+if "%HOST%"=="0.0.0.0" (
+    echo On your local network ^(--lan^), open one of these on the other device:
+    for /f "tokens=2 delims=:" %%a in ('ipconfig ^| findstr /c:"IPv4"') do (
+        for /f "tokens=* delims= " %%b in ("%%a") do echo     http://%%b:%PORT%/
+    )
+    echo   ^(usually the 192.168.x.x one; allow PHP through the firewall if asked^)
+)
+"%PHP%" -S %HOST%:%PORT% -t "%DIR%." "%DIR%.github\dev-router.php"

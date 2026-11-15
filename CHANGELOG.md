@@ -4,6 +4,14 @@ All notable changes to Servicepage are documented here.
 
 This project uses [Date Versioning](https://datevers.ing): each version is the UTC date it was released, as `YY.MM.DD`, with `-1`, `-2` and so on for later releases the same day. Versions up to v1.1.5 used Semantic Versioning.
 
+## v26.11.15
+
+### Added
+
+- `dev-server.sh`/`.bat` accept `--lan`: the dev server listens on `0.0.0.0` so phones and other
+  devices on the local network can open it, and prints the addresses to open (one per IPv4 address, minus
+  loopback). Without it, the server stays on `127.0.0.1` only
+
 ## v26.11.06-1
 
 ### Changed
